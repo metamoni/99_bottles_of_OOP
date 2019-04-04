@@ -44,19 +44,17 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
   end
 
   def test_a_couple_verses
-    skip
     expected = <<-VERSES
 99 bottles of beer on the wall, 99 bottles of beer.
 Take one down and pass it around, 98 bottles of beer on the wall.
 
 98 bottles of beer on the wall, 98 bottles of beer.
 Take one down and pass it around, 97 bottles of beer on the wall.
-VERSES
+    VERSES
     assert_equal expected, ::Bottles.new.verses(99, 98)
   end
 
   def test_a_few_verses
-    skip
     expected = <<-VERSES
 2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
