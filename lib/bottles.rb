@@ -34,4 +34,8 @@ class Bottles
     }
     array_of_lyrics.join("\n")
   end
+
+  def song
+    verses(99, 0)
+  end
 end
