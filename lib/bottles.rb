@@ -1,41 +1,39 @@
 class Bottles
-  def first_line(start)
-    if start == 1
+  def first_line(bottle)
+    if bottle == 1
       return "1 bottle of beer on the wall, 1 bottle of beer."
-    elsif start == 0
+    elsif bottle == 0
       return "No more bottles of beer on the wall, no more bottles of beer."
     end
 
-    return "#{start} bottles of beer on the wall, #{start} bottles of beer."
+    return "#{bottle} bottles of beer on the wall, #{bottle} bottles of beer."
   end
 
-  def last_line(start)
-    remaining = start - 1
+  def last_line(bottle)
+    remaining = bottle - 1
 
-    if start > 2
+    if bottle > 2
       return "Take one down and pass it around, #{remaining} bottles of beer on the wall."
-    elsif start > 1
+    elsif bottle > 1
       return "Take one down and pass it around, 1 bottle of beer on the wall."
-    elsif start == 1
+    elsif bottle == 1
       return "Take it down and pass it around, no more bottles of beer on the wall."
-    else start == 0
+    else bottle == 0
       return "Go to the store and buy some more, 99 bottles of beer on the wall."
     end
   end
 
-  def verse(start)
-    return "#{first_line(start)}\n#{last_line(start)}\n"
+  def verse(bottle)
+    return "#{first_line(bottle)}\n#{last_line(bottle)}\n"
   end
 
   def verses(start, finish)
-    array_of_bottles = (finish..start).to_a.reverse
-    array_of_lyrics = array_of_bottles.collect! { |bottle|
-      verse(bottle)
-    }
-    array_of_lyrics.join("\n")
+    lines_to_sing = (finish..start).to_a.reverse
+    verses_to_join = lines_to_sing.collect! { |bottle| verse(bottle) }
+    return verses_to_join.join("\n")
   end
 
   def song
-    verses(99, 0)
+    return verses(99, 0)
   end
 end
